@@ -1,18 +1,16 @@
 package models
 
 import (
-    "time"
+	"gorm.io/gorm"
 )
 
 type Post struct {
-    ID        uint      `json:"id" gorm:"primaryKey"`
+	gorm.Model
     Title     string    `json:"title" gorm:"not null"`
     Content   string    `json:"content"`
     UserID    uint      `json:"user_id" gorm:"not null"`
     User      User      `json:"user,omitempty" gorm:"foreignKey:UserID"`
     Published bool      `json:"published" gorm:"default:false"`
-    CreatedAt time.Time `json:"created_at"`
-    UpdatedAt time.Time `json:"updated_at"`
 }
 
 type CreatePostRequest struct {

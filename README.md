@@ -3,8 +3,6 @@
 
 A complete Go REST API with PostgreSQL, schema migrations, and CRUD operations using GORM and Gin.
 
-[![CI/CD Pipeline](https://github.com/yourusername/go-postgres-crud-api/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/go-postgres-crud-api/actions/workflows/ci.yml)
-
 ## Features
 
 - REST API with CRUD operations for Users and Posts

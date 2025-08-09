@@ -2,7 +2,6 @@ package handlers
 
 import (
     "net/http"
-    "strconv"
 
     "crud-api/internal/database"
     "crud-api/internal/models"

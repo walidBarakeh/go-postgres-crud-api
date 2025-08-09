@@ -2,7 +2,6 @@ package handlers
 
 import (
     "net/http"
-    "strconv"
 
     "crud-api/internal/database"
     "crud-api/internal/models"
@@ -125,50 +124,4 @@ func DeletePost(c *gin.Context) {
 
     database.DB.Delete(&post)
     c.JSON(http.StatusOK, gin.H{"message": "Post deleted successfully"})
-}
-
----
-
-// internal/routes/routes.go
-package routes
-
-import (
-    "crud-api/internal/handlers"
-    
-    "github.com/gin-gonic/gin"
-)
-
-func SetupRoutes() *gin.Engine {
-    r := gin.Default()
-
-    // Health check
-    r.GET("/health", func(c *gin.Context) {
-        c.JSON(200, gin.H{"status": "ok"})
-    })
-
-    api := r.Group("/api/v1")
-    {
-        // User routes
-        users := api.Group("/users")
-        {
-            users.GET("", handlers.GetUsers)
-            users.POST("", handlers.CreateUser)
-            users.GET("/:id", handlers.GetUser)
-            users.PUT("/:id", handlers.UpdateUser)
-            users.DELETE("/:id", handlers.DeleteUser)
-            users.GET("/:userId/posts", handlers.GetUserPosts)
-        }
-
-        // Post routes
-        posts := api.Group("/posts")
-        {
-            posts.GET("", handlers.GetPosts)
-            posts.POST("", handlers.CreatePost)
-            posts.GET("/:id", handlers.GetPost)
-            posts.PUT("/:id", handlers.UpdatePost)
-            posts.DELETE("/:id", handlers.DeletePost)
-        }
-    }
-
-    return r
 }
