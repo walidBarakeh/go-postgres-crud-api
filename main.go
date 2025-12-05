@@ -16,7 +16,6 @@ func main() {
         log.Println("No .env file found")
     }
 
-    // Connect to database
     if err := database.Connect(); err != nil {
         log.Fatal("Failed to connect to database:", err)
     }

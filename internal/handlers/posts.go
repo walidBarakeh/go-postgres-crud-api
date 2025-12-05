@@ -1,12 +1,12 @@
 package handlers
 
 import (
-    "net/http"
+	"net/http"
 
-    "crud-api/internal/database"
-    "crud-api/internal/models"
+	"crud-api/internal/database"
+	"crud-api/internal/models"
 
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 // GetPosts retrieves all posts
